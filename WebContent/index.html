@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EducaBrasil.org</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="./css/bootstrap.css" rel="stylesheet">
+		<link href="./css/bootstrap-responsive.css" rel="stylesheet">
+		<script src="./js/jquery.js"></script>
+		<script src="./js/bootstrap.js"></script>
+		<script src="./js/bootstrap-affix.js"></script>
+		<script src="./js/bootstrap-button.js"></script>
+		<script src="./js/bootstrap-collapse.js"></script>
+		<script src="./js/bootstrap-modal.js"></script>
+		<script src="./js/bootstrap-scrollspy.js"></script>
+		<script src="./js/bootstrap-tooltip.js"></script>
+		<script src="./js/bootstrap-typeahead.js"></script>
+		<script src="./js/bootstrap-alert.js"></script>
+		<script src="./js/bootstrap-carousel.js"></script>
+		<script src="./js/bootstrap-dropdown.js"></script>
+		<script src="./js/bootstrap-popover.js"></script>
+		<script src="./js/bootstrap-tab.js"></script>
+		<script src="./js/bootstrap-transition.js"></script>
+
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<style type="text/css">
+			html {
+				height: 100%
+			}
+			body {
+				height: 95%;
+				margin: 0;
+				padding: 0;
+				padding-top: 40px
+			}
+			#map_canvas {
+				height: 100%
+			}
+		</style>
+		<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGGn1YKxJmyPa1v-NXtqfTVjK7SV5qkFg&sensor=true"></script>
+		<script src="./core.js"></script>
+	</head>
+	<body onload="initialize()"  >
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span> <span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="">EducaBrasil</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li>
+								<a href="">Inicio</a>
+							</li>
+							<li>
+								<a href="">Mais informações</a>
+							</li>
+							<li>
+								<a href="">Sobre</a>
+							</li>
+						</ul>
+					</div>
+					<!--/.nav-collapse -->
+				</div>
+			</div>
+
+		</div>
+		<div id="map_canvas" style="width:100%; height:100%"></div>
+
+	</body>
+</html>
