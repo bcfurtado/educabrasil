@@ -1,5 +1,6 @@
 /**
  * @author Bruno Furtado
+ * @author Rhonan Carneiro
  */
 function initialize() {
 	
@@ -14,6 +15,8 @@ function initialize() {
 }
 
 function carregarMunicipios(map){
+	var markers = [];
+	
 	$.ajax({
 		type: "get",
 		url: "./ListaMunicipios",
@@ -26,17 +29,42 @@ function carregarMunicipios(map){
 					map: map,
 					title: val.nome
 				});
+				
 				var info = new google.maps.InfoWindow({
 					content: val.nome
 				});
 				
+				
 				google.maps.event.addListener(municipio,'click', function(){
-					info.open(map,municipio);
-				});
-
-			}); 
+					google.load('visualization', '1.0', {'packages':['corechart'], callback:drawChart});
+			        function drawChart(){
+						var data = new google.visualization.DataTable();
+				        data.addColumn('string', 'Topping');
+				        data.addColumn('number', 'Slices');
+				        data.addRows([
+				          ['Mushrooms', val.id],
+				          ['Onions', 1],
+				          ['Olives', 1],
+				          ['Zucchini', 1],
+				          ['Pepperoni', 2]
+				        ]);
+				        var options = {'title':'How Much Pizza I Ate Last Night',
+			                       'width':400,
+			                       'height':300};
+				        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+			        	chart.draw(data, options);
+			        	info.open(map,municipio);
+			        }
+			        
+			   });
+				
+				markers.push(municipio);
+				
+			});
+	
+			var markerCluster = new MarkerClusterer(map, markers);
+		
 		}
 	});
-	
-
+		
 }
