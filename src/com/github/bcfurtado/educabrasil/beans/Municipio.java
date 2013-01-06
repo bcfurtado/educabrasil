@@ -1,18 +1,27 @@
 package com.github.bcfurtado.educabrasil.beans;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Municipio {
 
-	private Long id;
+	private String id;
 	private String nome;
 	private Long geoNameId;
 	private Double latitude;
 	private Double longitude;
 
-	public Long getId() {
+	private Map<Integer, Exercicio> exercicios;
+
+	public Municipio() {
+		exercicios = new HashMap<Integer, Exercicio>();
+	}
+	
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -46,6 +55,14 @@ public class Municipio {
 
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
+	}
+
+	public Map<Integer, Exercicio> getExercicios() {
+		return exercicios;
+	}
+
+	public void setExercicios(Map<Integer, Exercicio> exercicios) {
+		this.exercicios = exercicios;
 	}
 
 }

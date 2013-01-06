@@ -34,10 +34,19 @@ public class MunicipiosParser extends DefaultHandler {
 	}
 	
 	
-	public void parser() throws ParserConfigurationException, SAXException, IOException {
+	public void parser() {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
-		SAXParser parser = factory.newSAXParser();
-		parser.parse(URL, this);
+		SAXParser parser;
+		try {
+			parser = factory.newSAXParser();
+			parser.parse(URL, this);
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public List<Municipio> pegarMunicipios(){
@@ -61,15 +70,7 @@ public class MunicipiosParser extends DefaultHandler {
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if ( qName.equalsIgnoreCase(ELEMENT_MUNICIPIO) ){
-			try {
-				municipios.add(new LatLonParser().parser(municipio));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ParserConfigurationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			municipios.add(municipio);
 			pilha.pop();
 		} else if ( qName.equalsIgnoreCase(ELEMENT_ID_MUNICIPIO) ){
 			pilha.pop();
@@ -86,7 +87,7 @@ public class MunicipiosParser extends DefaultHandler {
 		String string = new String(ch, start, length);
 		if ( !pilha.empty() ) {
 			if ( pilha.peek().equalsIgnoreCase(ELEMENT_ID_MUNICIPIO) ){
-				municipio.setId(Long.parseLong(string));
+				municipio.setId(string);
 			} else if ( pilha.peek().equalsIgnoreCase(ELEMENT_NOME_MUNICIPIO) ){
 				municipio.setNome(string);
 			} else if ( pilha.peek().equalsIgnoreCase(ELEMENT_GEO_MUNICIPIO) ) {

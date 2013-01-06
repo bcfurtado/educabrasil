@@ -28,13 +28,22 @@ public class LatLonParser extends DefaultHandler {
 		
 	}
 	
-	public Municipio parser( Municipio municipio ) throws SAXException, IOException, ParserConfigurationException{
+	public Municipio parser( Municipio municipio ){
 		this.municipio = municipio;
 		pilha = new Stack<String>();
 		
 		SAXParserFactory factory = SAXParserFactory.newInstance();
-		SAXParser parser = factory.newSAXParser();
-		parser.parse("http://api.geonames.org/get?geonameId="+municipio.getGeoNameId()+"&username="+USER+"", this);
+		SAXParser parser;
+		try {
+			parser = factory.newSAXParser();
+			parser.parse("http://api.geonames.org/get?geonameId="+municipio.getGeoNameId()+"&username="+USER+"", this);
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		return municipio;
 	}
