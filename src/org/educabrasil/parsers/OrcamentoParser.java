@@ -1,4 +1,4 @@
-package com.github.bcfurtado.educabrasil.parsers;
+package org.educabrasil.parsers;
 
 import java.io.IOException;
 import java.util.Stack;

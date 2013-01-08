@@ -1,4 +1,4 @@
-package com.github.bcfurtado.educabrasil.beans;
+package org.educabrasil.beans;
 
 import java.util.HashMap;
 import java.util.Map;

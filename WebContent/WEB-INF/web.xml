@@ -13,7 +13,7 @@
     <description></description>
     <display-name>ListaMunicipios</display-name>
     <servlet-name>ListaMunicipios</servlet-name>
-    <servlet-class>com.github.bcfurtado.educabrasil.servlets.ListaMunicipios</servlet-class>
+    <servlet-class>org.educabrasil.servlets.ListaMunicipios</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ListaMunicipios</servlet-name>

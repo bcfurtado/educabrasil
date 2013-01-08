@@ -1,10 +1,11 @@
-package com.github.bcfurtado.educabrasil.controller;
+package org.educabrasil.controller;
 
 import java.util.List;
 
-import com.github.bcfurtado.educabrasil.beans.Municipio;
-import com.github.bcfurtado.educabrasil.parsers.CarregarDados;
-import com.github.bcfurtado.educabrasil.parsers.MunicipiosParser;
+import org.educabrasil.beans.Municipio;
+import org.educabrasil.parsers.CarregarDados;
+import org.educabrasil.parsers.MunicipiosParser;
+
 
 public class ControladorMunicipios {
 

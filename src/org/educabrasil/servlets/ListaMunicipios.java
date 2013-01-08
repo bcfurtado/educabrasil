@@ -1,4 +1,4 @@
-package com.github.bcfurtado.educabrasil.servlets;
+package org.educabrasil.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,9 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.educabrasil.controller.ControladorMunicipios;
+
 import net.sf.json.JSONArray;
 
-import com.github.bcfurtado.educabrasil.controller.ControladorMunicipios;
 
 public class ListaMunicipios extends HttpServlet {
 	private static final long serialVersionUID = 1L;

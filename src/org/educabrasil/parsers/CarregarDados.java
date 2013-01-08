@@ -1,9 +1,10 @@
-package com.github.bcfurtado.educabrasil.parsers;
+package org.educabrasil.parsers;
 
 import java.util.List;
 
-import com.github.bcfurtado.educabrasil.beans.Exercicio;
-import com.github.bcfurtado.educabrasil.beans.Municipio;
+import org.educabrasil.beans.Exercicio;
+import org.educabrasil.beans.Municipio;
+
 
 public class CarregarDados implements Runnable {
 

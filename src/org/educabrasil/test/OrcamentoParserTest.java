@@ -1,10 +1,10 @@
-package com.github.bcfurtado.educabrasil.test;
+package org.educabrasil.test;
 
 import static org.junit.Assert.*;
 
+import org.educabrasil.parsers.OrcamentoParser;
 import org.junit.Test;
 
-import com.github.bcfurtado.educabrasil.parsers.OrcamentoParser;
 
 public class OrcamentoParserTest {
 

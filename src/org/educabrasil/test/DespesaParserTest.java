@@ -1,13 +1,13 @@
-package com.github.bcfurtado.educabrasil.test;
+package org.educabrasil.test;
 
 import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.educabrasil.beans.Despesa;
+import org.educabrasil.parsers.DespesaParser;
 import org.junit.Test;
 
-import com.github.bcfurtado.educabrasil.beans.Despesa;
-import com.github.bcfurtado.educabrasil.parsers.DespesaParser;
 
 public class DespesaParserTest {
 
