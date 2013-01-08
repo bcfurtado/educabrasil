@@ -28,16 +28,15 @@ public class CarregarDados implements Runnable {
 		
 		/* Define os exercicios disponiveis para a aplicacao */
 		for (Municipio municipio : municipios) {
-			municipio.getExercicios().put(2010, new Exercicio());
-			municipio.getExercicios().put(2011, new Exercicio());
-			municipio.getExercicios().put(2012, new Exercicio());
-			
+			municipio.getExercicios().add(new Exercicio(2010));
+			municipio.getExercicios().add(new Exercicio(2011));
+			municipio.getExercicios().add(new Exercicio(2012));
 		}
 
 		/* Carrega os dados dos municipios */
 		for (Municipio municipio : municipios){
 			try {
-				Thread.sleep(200);
+				Thread.sleep(500);
 				new Thread(new CarregarDadosMunicipio(municipio)).start();
 			} catch (InterruptedException e) {
 				e.printStackTrace();

@@ -1,20 +1,41 @@
 package org.educabrasil.beans;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="municipio")
 public class Municipio {
 
+	@Id @GeneratedValue
+	private Long idMunicipio;
+	
 	private String id;
 	private String nome;
 	private Long geoNameId;
 	private Double latitude;
 	private Double longitude;
 
-	private Map<Integer, Exercicio> exercicios;
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Exercicio> exercicios;
 
 	public Municipio() {
-		exercicios = new HashMap<Integer, Exercicio>();
+		exercicios = new ArrayList<Exercicio>();
+	}
+	
+	public Long getIdMunicipio() {
+		return idMunicipio;
+	}
+
+	public void setIdMunicipio(Long idMunicipio) {
+		this.idMunicipio = idMunicipio;
 	}
 	
 	public String getId() {
@@ -57,12 +78,13 @@ public class Municipio {
 		this.longitude = longitude;
 	}
 
-	public Map<Integer, Exercicio> getExercicios() {
+	public List<Exercicio> getExercicios() {
 		return exercicios;
 	}
 
-	public void setExercicios(Map<Integer, Exercicio> exercicios) {
+	public void setExercicios(List<Exercicio> exercicios) {
 		this.exercicios = exercicios;
 	}
 
+	
 }

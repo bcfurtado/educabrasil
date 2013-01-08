@@ -26,20 +26,19 @@ public class CarregarDadosMunicipio implements Runnable{
 //		latLonParser.parser(municipio);
 		
 		
-		for (Integer ano : municipio.getExercicios().keySet()) {
-			System.out.println("Municipio ID: " + municipio.getId() + " | Ano: " + ano);
-			Exercicio exercicio = municipio.getExercicios().get(ano);
+		for (Exercicio exercicio : municipio.getExercicios()) {
+			System.out.println("Municipio ID: " + municipio.getId() + " | Ano: " + exercicio.getAno());
 			
 			/* Carrega Orcamento */
 			OrcamentoParser orcamentoParser = new OrcamentoParser();
-			orcamentoParser.parser(ano, municipio.getId());
+			orcamentoParser.parser(exercicio.getAno(), municipio.getId());
 			Double orcamento = orcamentoParser.pegarOrcamento();
 			
 			exercicio.setOrcamento(orcamento);
 			
 			/* Carrega Despesas */
 			DespesaParser despesaParser = new DespesaParser();
-			despesaParser.parser(ano, municipio.getId());
+			despesaParser.parser(exercicio.getAno(), municipio.getId());
 			List<Despesa> despesas = despesaParser.pegarDespesas();
 			
 			exercicio.setDespesas(despesas);
