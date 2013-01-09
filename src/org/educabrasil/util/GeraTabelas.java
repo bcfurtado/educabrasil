@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.educabrasil.beans.Despesa;
-import org.educabrasil.beans.Exercicio;
+import org.educabrasil.beans.Orcamento;
 import org.educabrasil.beans.Municipio;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -51,7 +51,7 @@ public class GeraTabelas {
 
 		// classes.add(SuaClasseAqui.class);
 		classes.add(Municipio.class);
-		classes.add(Exercicio.class);
+		classes.add(Orcamento.class);
 		classes.add(Despesa.class);
 
 

@@ -3,51 +3,45 @@ package org.educabrasil.controller;
 import java.util.List;
 
 import org.educabrasil.beans.Municipio;
-import org.educabrasil.parsers.CarregarDados;
-import org.educabrasil.parsers.MunicipiosParser;
+import org.educabrasil.util.PreparaSessao;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 
 public class ControladorMunicipios {
 
-	private List<Municipio> municipios;
+	private Session session;
 	
 	public ControladorMunicipios(){
-		
+
 	}
 	
 	
 	public List<Municipio> listarMunicipios(){
-		if ( municipios != null ) {
-			return municipios;
-		} else {
-			MunicipiosParser municipiosParser = new MunicipiosParser();
-			municipiosParser.parser();
-
-			municipios = municipiosParser.pegarMunicipios();
-			return municipios;
-		}
+		session = PreparaSessao.pegarSessao();
+		
+		Criteria criteria = session.createCriteria(Municipio.class);
+		
+		List<Municipio> municipios = criteria.list();
+		session.close();
+		return municipios;
+		
 	}
 	
-	public static void main(String[] args) {
-		List<Municipio> municipios;
-		CarregarDados carregarDados = new CarregarDados();
-		new Thread(carregarDados).start();
+	public Municipio pegarMunicipio( String id ){
+		session = PreparaSessao.pegarSessao();
 		
-		try {
-			Thread.sleep(4 * 60 * 1000);
-			
-			municipios = carregarDados.pegarMunicipios();
-			for (Municipio municipio : municipios) {
-				System.out.println("ID: " + municipio.getId() );
-				System.out.println("Nome: " + municipio.getNome() );
-//				System.out.println("GeoCode Id: " + municipio.getGeoNameId() );
-//				System.out.println("Latitude: " + municipio.getLatitude() );
-				System.out.println("Orcamento: " + municipio.getExercicios().get(2012).getOrcamento());
-			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
+		Criteria criteria = session.createCriteria(Municipio.class)
+				.add(Restrictions.eq("id", id ));
+		
+		Municipio municipio = (Municipio) criteria.uniqueResult();
+		session.close();
+		return municipio;
+		
 	}
+	
+	
+
 	
 }

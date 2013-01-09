@@ -1,5 +1,6 @@
 package org.educabrasil.parsers;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,8 @@ public class MunicipiosParser extends DefaultHandler {
 		SAXParser parser;
 		try {
 			parser = factory.newSAXParser();
-			parser.parse(URL, this);
+			//parser.parse(URL, this);
+			parser.parse(new File("res/municipios.xml"), this);
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {

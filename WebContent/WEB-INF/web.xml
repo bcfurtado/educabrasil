@@ -19,4 +19,24 @@
     <servlet-name>ListaMunicipios</servlet-name>
     <url-pattern>/ListaMunicipios</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PegarInformacaoesGrafico</display-name>
+    <servlet-name>PegarInformacaoesGrafico</servlet-name>
+    <servlet-class>org.educabrasil.servlets.PegarInformacaoesGrafico</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PegarInformacaoesGrafico</servlet-name>
+    <url-pattern>/PegarInformacaoesGrafico</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExibirInformacoesMunicipio</display-name>
+    <servlet-name>ExibirInformacoesMunicipio</servlet-name>
+    <servlet-class>org.educabrasil.servlets.ExibirInformacoesMunicipio</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExibirInformacoesMunicipio</servlet-name>
+    <url-pattern>/ExibirInformacoesMunicipio</url-pattern>
+  </servlet-mapping>
 </web-app>

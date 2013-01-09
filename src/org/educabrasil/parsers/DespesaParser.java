@@ -29,6 +29,8 @@ public class DespesaParser extends DefaultHandler{
 	private static final String ELEMENT_DESPESA_DESCRICAO = "descricao_projeto_atividade";
 	private static final String ELEMENT_DESPESA_VALOR = "valor_total_fixado_projeto_atividade";
 	
+	private Integer ano;
+	
 	private List<Despesa> despesas;
 	private Stack<String> pilha;
 	
@@ -41,6 +43,7 @@ public class DespesaParser extends DefaultHandler{
 	
 	
 	public void parser(Integer ano, String idMunicipio) {
+		this.ano = ano;
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		SAXParser parser;
 		try {
@@ -72,6 +75,7 @@ public class DespesaParser extends DefaultHandler{
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		if ( qName.equalsIgnoreCase(ELEMENT_DESPESA) ){
 			despesa = new Despesa();
+			despesa.setAno(ano);
 			pilha.push(ELEMENT_DESPESA);
 		} else if ( qName.equalsIgnoreCase(ELEMENT_DESPESA_NOME) ){
 			pilha.push(ELEMENT_DESPESA_NOME);

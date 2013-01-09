@@ -24,12 +24,14 @@ public class Municipio {
 	private Double longitude;
 
 	@OneToMany(cascade=CascadeType.ALL)
-	private List<Exercicio> exercicios;
+	private List<Orcamento> orcamentos = new ArrayList<Orcamento>();
 
-	public Municipio() {
-		exercicios = new ArrayList<Exercicio>();
-	}
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Despesa> despesas = new ArrayList<Despesa>();
 	
+	public Municipio() {		
+	}
+
 	public Long getIdMunicipio() {
 		return idMunicipio;
 	}
@@ -37,7 +39,7 @@ public class Municipio {
 	public void setIdMunicipio(Long idMunicipio) {
 		this.idMunicipio = idMunicipio;
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -78,13 +80,22 @@ public class Municipio {
 		this.longitude = longitude;
 	}
 
-	public List<Exercicio> getExercicios() {
-		return exercicios;
+	public List<Orcamento> getOrcamentos() {
+		return orcamentos;
 	}
 
-	public void setExercicios(List<Exercicio> exercicios) {
-		this.exercicios = exercicios;
+	public void setOrcamentos(List<Orcamento> orcamentos) {
+		this.orcamentos = orcamentos;
 	}
 
+	public List<Despesa> getDespesas() {
+		return despesas;
+	}
+
+	public void setDespesas(List<Despesa> despesas) {
+		this.despesas = despesas;
+	}
+
+	
 	
 }
