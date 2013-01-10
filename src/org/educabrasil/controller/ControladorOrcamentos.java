@@ -22,6 +22,10 @@ public class ControladorOrcamentos {
 		Orcamento orcamento = (Orcamento)criteria.uniqueResult();
 		
 		session.close();
-		return orcamento.getOrcamento();
+		if ( orcamento != null ) {
+			return orcamento.getOrcamento();
+		} else {
+			return null;
+		}
 	}
 }
