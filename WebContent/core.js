@@ -65,6 +65,8 @@ function carregarMunicipios(map){
 		                       		'height':300,
 		                       		'is3D':'true',
 		                       		'backgroundColor': {fill: "none"}};
+			        var formatter = new google.visualization.NumberFormat({pattern: 'R$###,###'});
+					formatter.format(data,1);
 			        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 		        	chart.draw(data, options);
 			        }
