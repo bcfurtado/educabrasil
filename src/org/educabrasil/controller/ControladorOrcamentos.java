@@ -1,7 +1,7 @@
 package org.educabrasil.controller;
 
-import org.educabrasil.beans.Despesa;
 import org.educabrasil.beans.Municipio;
+import org.educabrasil.beans.Orcamento;
 import org.educabrasil.util.PreparaSessao;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -15,13 +15,13 @@ public class ControladorOrcamentos {
 		session = PreparaSessao.pegarSessao();
 		
 		
-		Criteria criteria = session.createCriteria(Despesa.class)
+		Criteria criteria = session.createCriteria(Orcamento.class)
 				.add(Restrictions.eq("ano", ano))
 				.add(Restrictions.eq("municipio", municipio));
 		
-		Double valor = (Double) criteria.uniqueResult();
+		Orcamento orcamento = (Orcamento)criteria.uniqueResult();
 		
 		session.close();
-		return valor;
+		return orcamento.getOrcamento();
 	}
 }
