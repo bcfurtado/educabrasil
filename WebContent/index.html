@@ -5,6 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="./css/bootstrap.css" rel="stylesheet">
 		<link href="./css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="./css/jquery-ui-1.9.2.custom.css" rel="stylesheet">
 		<script src="./js/bootstrap.js"></script>
 		<script src="./js/bootstrap-affix.js"></script>
 		<script src="./js/bootstrap-button.js"></script>
@@ -22,6 +23,7 @@
 		<script src="./markerclusterer.js"></script>
 		<script src="./js/jquery.js"></script>
 		<script src="./jquery.simpleslide.plugin.js"></script>
+		<script src="./jquery-ui-1.9.2.custom.js"></script>
 
 		
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -52,16 +54,15 @@
       top: 0;
       height: 100%;
       z-index: 999999;
-      width: 22%;
+      width: 350px;
       background-color: #fdfdfd;
       color: #FFF;
       -webkit-box-shadow: inset 0 0 5px 5px #fafafa;
       -moz-shadow: inset 0 0 5px 5px #fafafa;
       box-shadow: inset 0 0 5px 5px #fafafa;
     }
-    
-  </style>
-				
+    </style>
+
 	</head>
 	
 
@@ -74,7 +75,9 @@
   <div id="slide_right" style="display:none;">
     
     <h3 id=nome_municipio style="color:#000000; text-align: center;"></h3>
-	<div id="chart_div" class="pull-center"  style="width:20%; text-align: center;"></div>
+	<div id="chart_div" style="width:20%; height:30%; text-align: center;"></div>
+	<br>
+	<div id="column_chart_div" style="width:20%; height:30%; text-align: center;"></div>
     <a href="" id="close_right" class="close_right" hidden="true"></a>
   </div>
     <div id="main">
@@ -116,6 +119,9 @@
 								<a href="">Sobre</a>
 							</li>
 						</ul>
+						<label class="navbar-search pull-right" id="buscar">
+  							<input type="text" id="tags" class="search-query" placeholder="Search" >
+						</label>
 					</div>
 					<!--/.nav-collapse -->
 				</div>
