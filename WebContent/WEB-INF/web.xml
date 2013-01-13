@@ -39,4 +39,24 @@
     <servlet-name>ExibirInformacoesMunicipio</servlet-name>
     <url-pattern>/ExibirInformacoesMunicipio</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>sobre</display-name>
+    <servlet-name>sobre</servlet-name>
+    <servlet-class>org.educabrasil.servlets.Sobre</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sobre</servlet-name>
+    <url-pattern>/sobre</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>informacoes</display-name>
+    <servlet-name>informacoes</servlet-name>
+    <servlet-class>org.educabrasil.servlets.Informacoes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>informacoes</servlet-name>
+    <url-pattern>/informacoes</url-pattern>
+  </servlet-mapping>
 </web-app>

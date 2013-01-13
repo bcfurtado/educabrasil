@@ -1,5 +1,7 @@
 package org.educabrasil.controller;
 
+import java.util.List;
+
 import org.educabrasil.beans.Municipio;
 import org.educabrasil.beans.Orcamento;
 import org.educabrasil.util.PreparaSessao;
@@ -27,5 +29,18 @@ public class ControladorOrcamentos {
 		} else {
 			return null;
 		}
+	}
+	
+	public List<Orcamento> pegarTodosOsOrcamentosDoMunicipio(Municipio municipio){
+		session = PreparaSessao.pegarSessao();
+		
+		Criteria criteria = session.createCriteria(Orcamento.class)
+				.add(Restrictions.eq("municipio", municipio));
+		
+		List<Orcamento> orcamentos = (List<Orcamento>)criteria.list();
+		
+		session.close();
+		
+		return orcamentos;
 	}
 }

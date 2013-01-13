@@ -65,10 +65,10 @@ function carregarMunicipios(map){
 						data.addColumn('string', 'Destino do Investimento');
 						data.addColumn('number', 'Valor do Investimento');
 				        data.addRows([
-				                      ['Educação', val.investimentos.educacao],
+				                      ['Educa√ß√£oo', val.investimentos.educacao],
 				                      ['Outros', val.investimentos.outros],
 			        ]);
-			        var options = {'title':'Investimentos em Educação',
+			        var options = {'title':'Investimentos em Educa√ß√£o',
 		                       		'width':400,
 		                       		'height':300,
 		                       		'is3D':'true',
@@ -82,7 +82,7 @@ function carregarMunicipios(map){
 			        
 			        function drawColumnChart(){
 			        	var data = google.visualization.arrayToDataTable([
-			        	                                                  ['Ano', 'Educação', 'Outros'],
+			        	                                                  ['Ano', 'Educa√ß√£o', 'Outros'],
 			        	                                                  ['2005',  30000000,      60000000],
 			        	                                                  ['2006',  20000000,      55000000],
 			        	                                                  ['2007',  29000000,      59000000]

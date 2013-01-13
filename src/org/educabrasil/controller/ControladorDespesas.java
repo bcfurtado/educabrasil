@@ -1,5 +1,7 @@
 package org.educabrasil.controller;
 
+import java.util.List;
+
 import org.educabrasil.beans.Despesa;
 import org.educabrasil.beans.Municipio;
 import org.educabrasil.util.PreparaSessao;
@@ -13,6 +15,21 @@ public class ControladorDespesas {
 	private Session session;
 	
 	public ControladorDespesas() {
+	}
+
+	public List<Despesa> pegarDepesasDeEducacaoDoMunicio(Municipio municipio, Integer ano) {
+		
+		session = PreparaSessao.pegarSessao();
+		
+		Criteria criteria = session.createCriteria(Despesa.class)
+				.add(Restrictions.eq("municipio", municipio))
+				.add(Restrictions.eq("ano", ano));
+		
+		List<Despesa> depesas = (List<Despesa>) criteria.list();
+		
+		session.close();
+		
+		return depesas;
 	}
 	
 	public Double pegarDespesaTotalEmEducacao(Municipio municipio, Integer ano){
