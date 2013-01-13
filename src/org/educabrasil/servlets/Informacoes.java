@@ -30,30 +30,33 @@ public class Informacoes extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cod_municipio = request.getParameter("cod_mun");
-		String ano = request.getParameter("ano");
+		String anoString = request.getParameter("ano");
 		
 		List<Municipio> municipios = controladorMunicipios.listarMunicipios();
-		Municipio municipio = null;
 		List<Despesa> despesas = null;
 		List<Orcamento> orcamentos = null;
-
-		if ( cod_municipio != null && ano != null) {
+		Municipio municipio = null;
+		
+		if ( cod_municipio != null && anoString != null) {
+			Integer ano = Integer.parseInt(anoString);
 			municipio = controladorMunicipios.pegarMunicipio(cod_municipio);
-			despesas = controladorDespesas.pegarDepesasDeEducacaoDoMunicio(municipio,Integer.parseInt(ano));
+			despesas = controladorDespesas.pegarDepesasDeEducacaoDoMunicio(municipio,ano);
 			orcamentos = controladorOrcamentos.pegarTodosOsOrcamentosDoMunicipio(municipio);
-			
-		} else	if ( cod_municipio != null && ano == null) {
+			request.setAttribute("ano", ano);
+		} else	if ( cod_municipio != null && anoString == null) {
+			Integer ano = new Integer(2012);
 			municipio = controladorMunicipios.pegarMunicipio(cod_municipio);
-			despesas = controladorDespesas.pegarDepesasDeEducacaoDoMunicio(municipio,2012);
+			despesas = controladorDespesas.pegarDepesasDeEducacaoDoMunicio(municipio,ano);
 			orcamentos = controladorOrcamentos.pegarTodosOsOrcamentosDoMunicipio(municipio);
-
+			request.setAttribute("ano", ano);
 		} else {
+			Integer ano = new Integer(2012);
 			municipio = controladorMunicipios.pegarMunicipio("057"); //Fortaleza
-			despesas = controladorDespesas.pegarDepesasDeEducacaoDoMunicio(municipio,2012);
+			despesas = controladorDespesas.pegarDepesasDeEducacaoDoMunicio(municipio,ano);
 			orcamentos = controladorOrcamentos.pegarTodosOsOrcamentosDoMunicipio(municipio);
-			
+			request.setAttribute("ano", ano);
 		}
-
+		
 		request.setAttribute("municipio", municipio);
 		request.setAttribute("despesas", despesas);
 		request.setAttribute("orcamentos", orcamentos);

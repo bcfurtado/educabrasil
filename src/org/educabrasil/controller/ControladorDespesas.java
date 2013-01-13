@@ -7,6 +7,7 @@ import org.educabrasil.beans.Municipio;
 import org.educabrasil.util.PreparaSessao;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
@@ -23,7 +24,8 @@ public class ControladorDespesas {
 		
 		Criteria criteria = session.createCriteria(Despesa.class)
 				.add(Restrictions.eq("municipio", municipio))
-				.add(Restrictions.eq("ano", ano));
+				.add(Restrictions.eq("ano", ano))
+				.addOrder(Order.desc("valor"));
 		
 		List<Despesa> depesas = (List<Despesa>) criteria.list();
 		

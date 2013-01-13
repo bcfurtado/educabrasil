@@ -32,12 +32,13 @@
 	<script src="./js/jquery.js"></script>
 	<script src="./jquery.simpleslide.plugin.js"></script>
 	<script src="./jquery-ui-1.9.2.custom.js"></script>
+	<script src="http://www.panoramio.com/wapi/wapi.js?v=1"></script>
 	
 	
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style type="text/css">
 
-	body {
+	#conteudo {
 	        padding-top: 60px;
 	}
 
@@ -45,6 +46,7 @@
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGGn1YKxJmyPa1v-NXtqfTVjK7SV5qkFg&sensor=true"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="./core.js"></script>
+
 </head>
 
 <body>
@@ -67,33 +69,57 @@
 		</div>
 
 	</div>
-
-	<div class="container">
-
-		<div class="row">
+	<% 
+		List<Municipio> municipios = (List<Municipio>)request.getAttribute("municipios");
+		Municipio municipio = (Municipio)request.getAttribute("municipio");
+		List<Orcamento> orcamentos = (List<Orcamento>)request.getAttribute("orcamentos");
+		List<Despesa> despesas = (List<Despesa>)request.getAttribute("despesas");
+	%>
+	<div class="container-fluid" id="conteudo">
+		<style type="text/css">
+		  #wapiblock .panoramio-wapi-images {
+		  
+		    background-color: #eeeeee;
+		  }
+		  #wapiblock .pwanoramio-wapi-tos{
+		    background-color: #eeeeee;
+		  }
+		</style>
+      <div class="hero-unit">
+        <% String nomeDoMunicipio = municipio.getNome().substring(0,1).toUpperCase().concat(municipio.getNome().toLowerCase().substring(1, municipio.getNome().length())); %>
+        <h1><%=nomeDoMunicipio %></h1>
+        <div id="wapiblock"></div>
+		<script type="text/javascript">
+			var myRequest = {
+			  'tag': '<%=nomeDoMunicipio%>',
+			};
+			var myOptions = {
+				'columns': 8,
+				'croppedPhotos': true
+			};
+			var wapiblock = document.getElementById('wapiblock');
+			var widget = new panoramio.PhotoListWidget(wapiblock, myRequest, myOptions);
+			widget.setPosition(0);
+		</script>
+		
+		
+      </div>
+      
+		<div class="row-fluid">
 			<div class="span2">
 				<div class="well sidebar-nav">
 				        <ul class="nav nav-list">
 				        	<li class="nav-header">Cidades</li>
 				        
-				        	<% 
-				        		List<Municipio> municipios = (List<Municipio>)request.getAttribute("municipios");
-				        		Municipio municipio = (Municipio)request.getAttribute("municipio");
-				        		List<Orcamento> orcamentos = (List<Orcamento>)request.getAttribute("orcamentos");
-				        		List<Despesa> despesas = (List<Despesa>)request.getAttribute("despesas");
-				        		
-				        			for(Municipio municipioAtual : municipios){
-			        		%>
+							<% for(Municipio municipioAtual : municipios){ %>
 			        			<li><a href="./informacoes?cod_mun=<%=municipioAtual.getId() %>"><%=municipioAtual.getNome() %></a></li>
-			        		<%
-				        			}
-			        		%>
+			        		<% } %>
 				        </ul>
 				</div>
 			</div>
 
 			<div class="span10">
-				<h1><%= municipio.getNome() %></h1>
+				<h2>Despesas de <%=request.getAttribute("ano") %></h2>
 				<% for(Orcamento orcamento : orcamentos){ %>
 					<a class="btn" href="./informacoes?cod_mun=<%=municipio.getId()%>&ano=<%=orcamento.getAno()%>"><%=orcamento.getAno() %></a>
 				<% } %>
@@ -103,9 +129,9 @@
 
 						<thead>
 							<tr>
-								<th>Nome</th>
-								<th>Decrição</th>
-								<th>Valor</th>
+								<th style="width: 40%">Nome</th>
+								<th style="width: 40%">Decrição</th>
+								<th style="width: 20%">Valor</th>
 
 							</tr>
 						</thead>
