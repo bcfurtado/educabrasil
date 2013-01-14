@@ -180,6 +180,8 @@
 				</div>
 			</div>
 			<hr>
+			<p><img alt="Tecnologias Utilizadas" src="./img/footer.png"></p>
+			<hr>
 			<div class="footer">
 				<%
 					GregorianCalendar gc = new GregorianCalendar();
