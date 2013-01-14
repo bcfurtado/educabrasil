@@ -24,7 +24,6 @@
 		<script src="./js/jquery.js"></script>
 		<script src="./jquery.simpleslide.plugin.js"></script>
 		<script src="./jquery-ui-1.9.2.custom.js"></script>
-
 		
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<style type="text/css">
@@ -40,64 +39,60 @@
 			#map_canvas {
 				height: 100%
 			}
+			#slide_right{
+				display: none;
+				position: absolute;
+				position: fixed;
+				top: 0;
+				height: 100%;
+				z-index: 999999;
+				width: 350px;
+				background-color: #fdfdfd;
+				color: #FFF;
+				-webkit-box-shadow: inset 0 0 5px 5px #fafafa;
+				-moz-shadow: inset 0 0 5px 5px #fafafa;
+				box-shadow: inset 0 0 5px 5px #fafafa;
+	    	}
 		</style>
 		<script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGGn1YKxJmyPa1v-NXtqfTVjK7SV5qkFg&sensor=true"></script>
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		<script src="./core.js"></script>
-			
-	<style>
- #slide_right{
-      display: none;
-      position: absolute;
-      position: fixed;
-      top: 0;
-      height: 100%;
-      z-index: 999999;
-      width: 350px;
-      background-color: #fdfdfd;
-      color: #FFF;
-      -webkit-box-shadow: inset 0 0 5px 5px #fafafa;
-      -moz-shadow: inset 0 0 5px 5px #fafafa;
-      box-shadow: inset 0 0 5px 5px #fafafa;
-    }
-    </style>
-
+		
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-37631842-1']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>		
+		
 	</head>
-	
-
-	
-	<body onload="initialize()"  >
-  
-
-  
-  
-  <div id="slide_right" style="display:none;">
+		<body onload="initialize()"  >
+  			<div id="slide_right" style="display:none;">
     
-    <h3 id=nome_municipio style="color:#000000; text-align: center;"></h3>
-	<div id="chart_div" style="width:20%; height:30%; text-align: center;"></div>
-	<br>
-	<div id="column_chart_div" style="width:20%; height:30%; text-align: center;"></div>
-    <a href="" id="close_right" class="close_right" hidden="true"></a>
-  </div>
-    <div id="main">
-  
-  <a id="slide_right_link" class="slide_right_link" hidden="true"></a>
-   
-   </div>
-   
-  <script>
-    $(document).ready(function(){
-
-    	   $('#slide_right_link').simpleSlider({ 
-               direction: 'right',
-               slide: '#slide_right',
-               main: '#main',
-               close: '#close_right'
-             });
-      
-    });
-  </script>
+	    	<h3 id=nome_municipio style="color:#000000; text-align: center;"></h3>
+				<div id="chart_div" style="width:20%; height:30%; text-align: center;"></div>
+				<br>
+			<div id="column_chart_div" style="width:20%; height:30%; text-align: center;"></div>
+		    <a href="" id="close_right" class="close_right" hidden="true"></a>
+		  </div>
+	    <div id="main">
+	    	<a id="slide_right_link" class="slide_right_link" hidden="true"></a>
+	    </div>   
+		<script>
+			$(document).ready(function(){
+				$('#slide_right_link').simpleSlider({
+					direction: 'right',
+					slide: '#slide_right',
+					main: '#main',
+					close: '#close_right'
+				});
+			});
+		</script>
 
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">

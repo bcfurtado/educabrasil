@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <%@page import="java.util.GregorianCalendar"%>
-<%@page import="sun.util.calendar.Gregorian"%>
 <%@page import="org.educabrasil.beans.Orcamento"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="java.text.NumberFormat"%>
 <%@page import="org.educabrasil.beans.Despesa"%>
 <%@page import="java.util.List"%>
 <%@page import="org.educabrasil.beans.Municipio"%>
@@ -46,6 +44,17 @@
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGGn1YKxJmyPa1v-NXtqfTVjK7SV5qkFg&sensor=true"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="./core.js"></script>
+	
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-37631842-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 
 </head>
 
@@ -138,7 +147,6 @@
 						<tbody>
 							<%
 								DecimalFormat df = new DecimalFormat("R$ ###,###,###.00"); 
-								NumberFormat nf = NumberFormat.getInstance();
 								for (Despesa despesa : despesas) {
 							%>
 							<tr>
