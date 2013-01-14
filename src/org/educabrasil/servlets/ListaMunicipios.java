@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.educabrasil.beans.Municipio;
+import org.educabrasil.beans.Orcamento;
 import org.educabrasil.controller.ControladorDespesas;
 import org.educabrasil.controller.ControladorMunicipios;
 import org.educabrasil.controller.ControladorOrcamentos;
@@ -24,6 +25,7 @@ public class ListaMunicipios extends HttpServlet {
 	private ControladorMunicipios controladorMunicipios;
 	private ControladorDespesas controladorDespesas;
 	private ControladorOrcamentos controladorOrcamentos;
+	private JSONArray array = null;
 	
     public ListaMunicipios() {
     	controladorMunicipios = new ControladorMunicipios();
@@ -37,27 +39,39 @@ public class ListaMunicipios extends HttpServlet {
 		
 		//JSONArray array = JSONArray.fromObject(controladorMunicipios.listarMunicipios());
 		
-		JSONArray array = new JSONArray();
-		for (Municipio municipio : municipios) {
+		
+		if ( array == null ) {
+			array = new JSONArray();
+			for (Municipio municipio : municipios) {
 
-			JSONObject objeto = new JSONObject();
-			objeto.put("id", municipio.getIdMunicipio());
-			objeto.put("nome", municipio.getNome() );
-			objeto.put("latitude", municipio.getLatitude());
-			objeto.put("longitude", municipio.getLongitude());
-			objeto.put("longitude", municipio.getLongitude());
-
-			Double educacao = controladorDespesas.pegarDespesaTotalEmEducacao(municipio, 2012);
-			Double orcamento = controladorOrcamentos.pegarOrcamento(municipio, 2012);
-
-			if ( educacao != null && orcamento != null) {
-				JSONObject investimentos = new JSONObject();
-				investimentos.put("educacao", educacao);
-				investimentos.put("outros", orcamento - educacao);
-				investimentos.put("orcamento",orcamento);
-				objeto.put("investimentos", investimentos);
+				JSONObject objeto = new JSONObject();
+				objeto.put("id", municipio.getId());
+				objeto.put("nome", municipio.getNome() );
+				objeto.put("latitude", municipio.getLatitude());
+				objeto.put("longitude", municipio.getLongitude());
+				objeto.put("longitude", municipio.getLongitude());
+				JSONArray investimentos = new JSONArray();
+							
+				List<Orcamento> orcamentos = controladorOrcamentos.pegarTodosOsOrcamentosDoMunicipio(municipio);
 				
+				for (Orcamento orcamento : orcamentos) {
+					Double educacao = controladorDespesas.pegarDespesaTotalEmEducacao(municipio, orcamento.getAno());
+					Double orcamentoValor = controladorOrcamentos.pegarOrcamento(municipio, orcamento.getAno());
+
+					if ( educacao != null && orcamentoValor != null) {
+						JSONObject investimento = new JSONObject();
+						investimento.put("ano", orcamento.getAno().toString());
+						investimento.put("educacao", educacao);
+						investimento.put("outros", orcamentoValor - educacao);
+						investimento.put("orcamento",orcamentoValor);
+						investimentos.add(investimento);
+					}
+					
+				}
+				
+				objeto.put("investimentos", investimentos);
 				array.add(objeto);
+
 			}
 		}
 		

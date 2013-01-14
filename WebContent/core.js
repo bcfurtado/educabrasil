@@ -48,7 +48,7 @@ function carregarMunicipios(map){
 				google.maps.event.addListener(municipio,'click', function(){
 					
 					if(cont<1){
-					$('a.close_right').get(0).click();
+						$('a.close_right').get(0).click();
 					}
 					else{
 						$('a.close_right').get(0).click();
@@ -65,8 +65,8 @@ function carregarMunicipios(map){
 						data.addColumn('string', 'Destino do Investimento');
 						data.addColumn('number', 'Valor do Investimento');
 				        data.addRows([
-				                      ['Educaçãoo', val.investimentos.educacao],
-				                      ['Outros', val.investimentos.outros],
+				                      ['Educação', val.investimentos[2].educacao],
+				                      ['Outros', val.investimentos[2].outros],
 			        ]);
 			        var options = {'title':'Investimentos em Educação',
 		                       		'width':400,
@@ -83,9 +83,9 @@ function carregarMunicipios(map){
 			        function drawColumnChart(){
 			        	var data = google.visualization.arrayToDataTable([
 			        	                                                  ['Ano', 'Educação', 'Outros'],
-			        	                                                  ['2005',  30000000,      60000000],
-			        	                                                  ['2006',  20000000,      55000000],
-			        	                                                  ['2007',  29000000,      59000000]
+			        	                                                  [val.investimentos[0].ano,  val.investimentos[0].educacao,	val.investimentos[0].outros],
+			        	                                                  [val.investimentos[1].ano,  val.investimentos[1].educacao,    val.investimentos[1].outros],
+			        	                                                  [val.investimentos[2].ano,  val.investimentos[2].educacao,    val.investimentos[2].outros]
 			        	                                                ]);
 			        	var options = {
 			        	          title: 'Comparativo com anos anteriores',
@@ -104,7 +104,7 @@ function carregarMunicipios(map){
 					info.open(map,this);
 					map.panTo(new google.maps.LatLng(val.latitude, val.longitude));
 					info.setContent(val.nome);
-					$("#nome_municipio").html(val.nome);
+					$("#nome_municipio").html('<a href="./informacoes?cod_mun='+val.id+'">' + val.nome + "</a>");
 			        	//window.open("./PegarMunicipio");
 //						$(".second").pageslide({ direction: "left", modal: true });
 //						$pageslide({ direction: 'left', href='_secondary.html' });
