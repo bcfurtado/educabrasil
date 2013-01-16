@@ -13,6 +13,8 @@ var map;
 
 var info;
 
+var resultado = {};
+
 function initialize() {
 	
 	var mapOptions = {
@@ -36,14 +38,16 @@ function carregarMunicipios(map){
 		url: "./ListaMunicipios",
 		dataType: "json",
 		success: function(result){
-			 
+
 			$.each(result, function(key, val){
+				
 				var municipio = new google.maps.Marker({
 					position: new google.maps.LatLng(val.latitude ,val.longitude),
 					map: map,
 					title: val.nome,
 				});
 				
+				resultado[municipio.getTitle()] = val;
 				
 				google.maps.event.addListener(municipio,'click', function(){
 					
@@ -105,13 +109,6 @@ function carregarMunicipios(map){
 					map.panTo(new google.maps.LatLng(val.latitude, val.longitude));
 					info.setContent(val.nome);
 					$("#nome_municipio").html('<a href="./informacoes?cod_mun='+val.id+'">' + val.nome + "</a>");
-			        	//window.open("./PegarMunicipio");
-//						$(".second").pageslide({ direction: "left", modal: true });
-//						$pageslide({ direction: 'left', href='_secondary.html' });
-			        	
-			        	//var informacaoes = $("#chart_div").get(0);
-			        	//informacaoes.pageslide();
-						//$(informacaoes).pageslide({ width: "300px", direction: "left", modal: true });
 
 			    });
 				
@@ -137,7 +134,28 @@ function carregarMunicipios(map){
 			
 			
 			
-			var markerCluster = new MarkerClusterer(map, markers);
+			var markerCluster = new MarkerClusterer(map, markers, {
+				maxZoom: 11,
+			    calculator: function(markers, numStyles) {
+					var totalEducacao = 0.0;
+					var totalOutros = 0.0;
+					
+					for ( var i = 0; i < markers.length; i++) {
+						var marker = markers[i];
+						totalEducacao += resultado[marker.getTitle()].investimentos[2].educacao;
+						totalOutros +=  resultado[marker.getTitle()].investimentos[2].outros;
+					}
+					var valor = ( totalEducacao / totalOutros ) * 100 ;
+//					alert("Valor Total: " + valor);
+					return {
+		                text: valor.toFixed(2) +" %",
+		                index: numStyles
+		            };
+			    }
+			});
+
+			
+
 		
 		}
 	});
@@ -151,9 +169,7 @@ $(function() {
     		for(var i = 0; i < markers.length; i++){
     			if(markers[i].getTitle()==municipioSelecionado.value){
     				map.panTo(markers[i].getPosition());
-    				//info.setContent(markers[i].getTitle());
-    				//info.open(map,markers[i]);
-    				map.setZoom(13);
+    				map.setZoom(11);
     		}
     	}
     	},

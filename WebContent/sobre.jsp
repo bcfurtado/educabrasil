@@ -126,9 +126,11 @@
 				<hr>
 				<div>
 					<h2>Informações</h2>
-					<p>O EducaBrasil.org desenvolvido pelos alunos do curso de <a href="http://www.es.ufc.br/">Engenharia de Software</a> da <a href="http://www.ufc.br/">Universidade Federal do Ceará</a> sob orientação pro professor Camilo Almendra tem como funcionalidade principal mostrar o percentual do orçamento do municipios brasileiros investido em educação de forma interativa utilizando mapas, possibilitando ao usuário a visualização do valor investido por regiões ou por município especifico.</p>
-					<p>Também é possível a visualização do valor bruto em Reais que foi investido assim como o total do orçamento do município além de uma descrição detalhada desses gastos.</p>
-					<p>Inicialmente a aplicação contém apenas os dados do Ceará disponibilizados pelo <a href="http://api.tcm.ce.gov.br/">TCM do Ceará</a> entretanto existe a intenção de incluir os dados do restante do país e também que essa aplicação possa ser alimentada com novos dados como o do <a href="http://www.pnud.org.br/atlas/ranking/IDH-Globlal-2013.aspx?indiceAccordion=1&li=li_Ranking2013">IDH</a> para que com isso seja desenvolvido rankings para que esses municipios possam ser comparados e classificados pelo nivel de qualidade de vida que os investimentos em educação trouxeram, por exemplo.</p>
+					<p>O EducaBrasil.org foi desenvolvido por alunos do curso de <a href="http://www.es.ufc.br/">Engenharia de Software</a> da <a href="http://www.ufc.br/">Universidade Federal do Ceará</a> sob orientação do professor Camilo Almendra. Sua funcionalidade principal é mostrar o percentual do orçamento dos municípios brasileiros investidos em educação de forma interativa utilizando mapas, possibilitando ao usuário a visualização do valor investido por regiões ou por município específico.</p>
+
+					<p>Também é possível a visualização do valor bruto em Reais que foi investido, assim como o total do orçamento do município e uma descrição detalhada destes gastos.</p>
+
+					<p>Inicialmente a aplicação contém apenas dados do Ceará, que são disponibilizados pelo <a href="http://api.tcm.ce.gov.br/">TCM do Ceará</a>, entretanto existe a intenção de incluir dados do demais munícipios do país e também que essa aplicação possa ser alimentada com novos dados, como por exemplo o <a href="http://www.pnud.org.br/atlas/ranking/IDH-Globlal-2013.aspx?indiceAccordion=1&li=li_Ranking2013">IDH</a>, para que com isso seja desenvolvido um ranking para que esses municípios possam ser comparados e classificados pelo nível de qualidade de vida que os investimentos em educação trouxeram.</p>
 				</div>
 				<hr>
 				<div>
@@ -168,7 +170,7 @@
 		        	<hr>
 					<div class="box_profile">
 			        	<img src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/12745_331514633614234_1043577776_n.jpg" class="img-circle photo_profile">
-			        	<h4>AJ Amâncio</h4>
+			        	<h4>Antônio José</h4>
 			        	<p>@ajamancio</p>
 					</div>
 					<hr>
@@ -179,8 +181,6 @@
 					</div>
 				</div>
 			</div>
-			<hr>
-			<p><img alt="Tecnologias Utilizadas" src="./img/footer.png"></p>
 			<hr>
 			<div class="footer">
 				<%
