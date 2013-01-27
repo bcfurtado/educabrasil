@@ -14,10 +14,10 @@ Contribuindo
 ------------
 
 1. Faça um Fork desse projeto
-2. Faça sua contribuição
+2. Faça suas alterações
 3. Faça o commit das suas alterações
 4. Envie para o repósitorio (Push)
-5. Faça um [Pull Request][1]
+5. Faça um Pull Request
 6. Aguarde :)
 
 
