@@ -164,9 +164,9 @@
 		
 		        <div class="span6">
 					<div class="box_profile">
-						<img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-snc6/267726_381878301888118_1375568537_n.jpg" class="img-circle photo_profile">
+						<img src="https://sphotos-g.ak.fbcdn.net/hphotos-ak-snc6/224474_417462058329742_1286034763_n.jpg" class="img-circle photo_profile">
 						<h4>Rhonan Carneiro</h4>
-						<p>21 anos, estudante de Engenharia de Software-UFC.</p>
+						<p>Estudante de Engenharia de Software-UFC.</p>
 						<p><a href="http://twitter.com/rhonan">@rhonan</a></p>
 					</div>
 		        	<hr>
