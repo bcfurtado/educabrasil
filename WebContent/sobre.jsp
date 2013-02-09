@@ -3,6 +3,8 @@
 <html>
 <head>
 	<title>EducaBrasil.org</title>
+	<meta name="description" content="O EducaBrasil.org é um mashup para exibir de forma simplificada os investimentos dos municípios em educação.">
+	<meta name="keywords" content="educabrasil,educação">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="./css/bootstrap.css" rel="stylesheet">
 	<link href="./css/bootstrap-responsive.css" rel="stylesheet">
