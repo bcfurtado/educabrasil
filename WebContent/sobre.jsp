@@ -164,7 +164,7 @@
 		
 		        <div class="span6">
 					<div class="box_profile">
-						<img src="https://sphotos-g.ak.fbcdn.net/hphotos-ak-snc6/224474_417462058329742_1286034763_n.jpg" class="img-circle photo_profile">
+						<img src="http://sphotos-g.ak.fbcdn.net/hphotos-ak-snc6/224474_417462058329742_1286034763_n.jpg" class="img-circle photo_profile">
 						<h4>Rhonan Carneiro</h4>
 						<p>Estudante de Engenharia de Software-UFC.</p>
 						<p><a href="http://twitter.com/rhonan">@rhonan</a></p>
