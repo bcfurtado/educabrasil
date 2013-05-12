@@ -8,8 +8,8 @@
 <html>
 <head>
 	<title>EducaBrasil.org</title>
-	<meta name="description" content="O EducaBrasil.org Ã© um mashup para exibir de forma simplificada os investimentos dos municÃ­pios em educaÃ§Ã£o.">
-	<meta name="keywords" content="educabrasil,educaÃ§Ã£o">
+	<meta name="description" content="O EducaBrasil.org é um mashup para exibir de forma simplificada os investimentos dos municípios em educação.">
+	<meta name="keywords" content="educabrasil,educação">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="./css/bootstrap.css" rel="stylesheet">
 	<link href="./css/bootstrap-responsive.css" rel="stylesheet">
@@ -37,13 +37,17 @@
 	
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style type="text/css">
-
-	#conteudo {
-	        padding-top: 60px;
-	}
-
+		#conteudo {
+			padding-top: 60px;
+		}
+		#wapiblock .panoramio-wapi-images {
+			background-color: #eeeeee;
+		}
+		#wapiblock .pwanoramio-wapi-tos{
+			background-color: #eeeeee;
+		}
 	</style>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGGn1YKxJmyPa1v-NXtqfTVjK7SV5qkFg&sensor=true"></script>
+	
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="./core.js"></script>
 	
@@ -87,15 +91,6 @@
 		List<Despesa> despesas = (List<Despesa>)request.getAttribute("despesas");
 	%>
 	<div class="container-fluid" id="conteudo">
-		<style type="text/css">
-		  #wapiblock .panoramio-wapi-images {
-		  
-		    background-color: #eeeeee;
-		  }
-		  #wapiblock .pwanoramio-wapi-tos{
-		    background-color: #eeeeee;
-		  }
-		</style>
       <div class="hero-unit">
         <% String nomeDoMunicipio = municipio.getNome().substring(0,1).toUpperCase().concat(municipio.getNome().toLowerCase().substring(1, municipio.getNome().length())); %>
         <h1><%=nomeDoMunicipio %></h1>
@@ -132,7 +127,7 @@
 			<div class="span10">
 				<h2>Despesas de <%=request.getAttribute("ano") %></h2>
 				<% for(Orcamento orcamento : orcamentos){ %>
-					<a class="btn" href="./informacoes?cod_mun=<%=municipio.getId()%>&ano=<%=orcamento.getAno()%>"><%=orcamento.getAno() %></a>
+					<a class="btn" href="./informacoes?cod_mun=<%=municipio.getId()%>&amp;ano=<%=orcamento.getAno()%>"><%=orcamento.getAno() %></a>
 				<% } %>
 				
 				<section>

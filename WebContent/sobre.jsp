@@ -3,8 +3,8 @@
 <html>
 <head>
 	<title>EducaBrasil.org</title>
-	<meta name="description" content="O EducaBrasil.org � um mashup para exibir de forma simplificada os investimentos dos munic�pios em educa��o.">
-	<meta name="keywords" content="educabrasil,educa��o">
+	<meta name="description" content="O EducaBrasil.org é um mashup para exibir de forma simplificada os investimentos dos municípios em educação.">
+	<meta name="keywords" content="educabrasil,educação">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="./css/bootstrap.css" rel="stylesheet">
 	<link href="./css/bootstrap-responsive.css" rel="stylesheet">
@@ -128,11 +128,11 @@
 				<hr>
 				<div>
 					<h2>Informações</h2>
-					<p>O EducaBrasil.org foi desenvolvido por alunos do curso de <a href="http://www.es.ufc.br/">Engenharia de Software</a> da <a href="http://www.ufc.br/">Universidade Federal do Ceará</a> sob orientação do professor Camilo Almendra. Sua funcionalidade principal é mostrar o percentual do orçamento dos municípios brasileiros investidos em educação de forma interativa utilizando mapas, possibilitando ao usuário a visualização do valor investido por regiões ou por município específico.</p>
+					<p>O EducaBrasil.org foi desenvolvido por alunos do curso de <a href="http://www.es.ufc.br/">Engenharia de Software</a> da <a href="http://www.ufc.br/">Universidade Federal do Ceará</a> sob orientação do professor Camilo Almendra. Sua funcionalidade principal é mostrar o percentual do orçamento dos municípios brasileiros investidos em educação de forma interativa utilizando mapas, possibilitando ao usário a visualização do valor investido por regiões ou por município específico.</p>
 
 					<p>Também é possível a visualização do valor bruto em Reais que foi investido, assim como o total do orçamento do município e uma descrição detalhada destes gastos.</p>
 
-					<p>Inicialmente a aplicação contém apenas dados do Ceará, que são disponibilizados pelo <a href="http://api.tcm.ce.gov.br/">TCM do Ceará</a>, entretanto existe a intenção de incluir dados do demais munícipios do país e também que essa aplicação possa ser alimentada com novos dados, como por exemplo o <a href="http://www.pnud.org.br/atlas/ranking/IDH-Globlal-2013.aspx?indiceAccordion=1&li=li_Ranking2013">IDH</a>, para que com isso seja desenvolvido um ranking para que esses municípios possam ser comparados e classificados pelo nível de qualidade de vida que os investimentos em educação trouxeram.</p>
+					<p>Inicialmente a aplicação contém apenas dados do Ceará, que são disponibilizados pelo <a href="http://api.tcm.ce.gov.br/">TCM do Ceará</a>, entretanto existe a intenção de incluir dados do demais munícipios do país e também que essa aplicação possa ser alimentada com novos dados, como por exemplo o <a href="http://www.pnud.org.br/atlas/ranking/IDH-Globlal-2013.aspx?indiceAccordion=1&amp;li=li_Ranking2013">IDH</a>, para que com isso seja desenvolvido um ranking para que esses municípios possam ser comparados e classificados pelo nível de qualidade de vida que os investimentos em educação trouxeram.</p>
 				</div>
 				<hr>
 				<div>
@@ -142,21 +142,21 @@
 				<div class="row-fluid marketing">
 				<div class="span6">
 		        	<div class="box_profile">
-		        		<img src="https://si0.twimg.com/profile_images/1466467779/eued.jpg" class="img-circle photo_profile">
+		        		<img alt="Bruno Furtado" src="https://si0.twimg.com/profile_images/1466467779/eued.jpg" class="img-circle photo_profile">
 		        		<h4>Bruno Furtado</h4>
 		        		<p>Estudante de Engenharia de Software, Linux User, Aficionado por tecnologia e Desenvolvimento de software</p>
 		          		<p><a href="http://twitter.com/bcfurtado">@bcfurtado</a></p>
 				  	</div>
 		           	<hr>
 					<div class="box_profile">
-						<img src="https://si0.twimg.com/profile_images/1122408169/pequena.jpg" class="img-circle photo_profile">
+						<img alt="Camilo Almendra" src="https://si0.twimg.com/profile_images/1122408169/pequena.jpg" class="img-circle photo_profile">
 						<h4>Camilo Almendra</h4>
 						<p>Software Developer, Software Engineering Professor, Churrasco Addicted, Racing fan. I live on Ceará, nice place to rest & get your software done.</p>
 						<p><a href="https://twitter.com/ccalmendra/">@ccalmendra</a></p>
 		           	</div>
 		           	<hr>
 		    	  	<div class="box_profile">
-		    	  		<img src="https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-snc6/283234_1711166118964_3256951_n.jpg" class="img-circle photo_profile">
+		    	  		<img alt="Mauricio Lima" src="https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-snc6/283234_1711166118964_3256951_n.jpg" class="img-circle photo_profile">
 		    	  		<h4>Mauricio Lima</h4>
 						<p>@mauriciolimabob</p>
 		        	</div>		           	
@@ -164,20 +164,20 @@
 		
 		        <div class="span6">
 					<div class="box_profile">
-						<img src="http://sphotos-g.ak.fbcdn.net/hphotos-ak-snc6/224474_417462058329742_1286034763_n.jpg" class="img-circle photo_profile">
+						<img alt="Rhonan Carneiro" src="http://sphotos-g.ak.fbcdn.net/hphotos-ak-snc6/224474_417462058329742_1286034763_n.jpg" class="img-circle photo_profile">
 						<h4>Rhonan Carneiro</h4>
 						<p>Estudante de Engenharia de Software-UFC.</p>
 						<p><a href="http://twitter.com/rhonan">@rhonan</a></p>
 					</div>
 		        	<hr>
 					<div class="box_profile">
-			        	<img src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/12745_331514633614234_1043577776_n.jpg" class="img-circle photo_profile">
+			        	<img alt="Antônio José" src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-ash3/12745_331514633614234_1043577776_n.jpg" class="img-circle photo_profile">
 			        	<h4>Antônio José</h4>
 			        	<p>@ajamancio</p>
 					</div>
 					<hr>
 					<div class="box_profile">
-						<img src="https://si0.twimg.com/profile_images/1597322158/296119_179748578775123_100002199473491_473727_1780342601_n.jpg" class="img-circle photo_profile">
+						<img alt="Jorge Anderson" src="https://si0.twimg.com/profile_images/1597322158/296119_179748578775123_100002199473491_473727_1780342601_n.jpg" class="img-circle photo_profile">
 						<h4>Jorge Anderson</h4>
 						<p><a href="https://twitter.com/Jorgiinho_10">@Jorgiinho_10</a></p>
 					</div>
