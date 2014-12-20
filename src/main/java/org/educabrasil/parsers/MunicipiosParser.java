@@ -41,7 +41,7 @@ public class MunicipiosParser extends DefaultHandler {
 		try {
 			parser = factory.newSAXParser();
 			//parser.parse(URL, this);
-			parser.parse(new File("res/municipios.xml"), this);
+			parser.parse(new File("src/main/resources/municipios.xml"), this);
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
