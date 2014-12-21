@@ -41,6 +41,8 @@ public class CarregarDados implements Runnable {
 			municipio.getOrcamentos().add(new Orcamento(2010));
 			municipio.getOrcamentos().add(new Orcamento(2011));
 			municipio.getOrcamentos().add(new Orcamento(2012));
+			municipio.getOrcamentos().add(new Orcamento(2013));
+			municipio.getOrcamentos().add(new Orcamento(2014));
 		}
 
 		/* Carrega os dados dos municipios */
