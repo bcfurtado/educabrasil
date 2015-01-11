@@ -1,9 +1,7 @@
 package org.educabrasil.parsers;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.educabrasil.beans.Despesa;
 import org.educabrasil.beans.Orcamento;
 import org.educabrasil.beans.Municipio;
 
@@ -12,10 +10,6 @@ public class CarregarDados implements Runnable {
 
 	private List<Municipio> municipios;
 	
-	public CarregarDados() {
-		
-	}
-
 	public List<Municipio> pegarMunicipios(){
 		return municipios;
 	}
@@ -28,14 +22,6 @@ public class CarregarDados implements Runnable {
 		
 		municipios = municipiosParser.pegarMunicipios();
 		
-//		municipios = new ArrayList<Municipio>();
-//		Municipio m = new  Municipio();
-//		m.setNome("Fortaleza");
-//		m.setId("057");
-//		m.setDespesas(new ArrayList<Despesa>());
-//		m.setOrcamentos(new ArrayList<Orcamento>());
-//
-//		municipios.add(m);
 		/* Define os exercicios disponiveis para a aplicacao */
 		for (Municipio municipio : municipios) {
 			municipio.getOrcamentos().add(new Orcamento(2010));

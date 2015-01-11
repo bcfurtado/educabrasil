@@ -18,7 +18,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class MunicipiosParser extends DefaultHandler {
 	
-	private static final String URL = "http://api.tcm.ce.gov.br/sim/1_0/municipios.xml";	
+//	private static final String URL = "http://api.tcm.ce.gov.br/sim/1_0/municipios.xml";
 	private static final String ELEMENT_MUNICIPIO = "municipios";
 	private static final String ELEMENT_ID_MUNICIPIO = "codigo_municipio";
 	private static final String ELEMENT_NOME_MUNICIPIO = "nome_municipio";
@@ -34,13 +34,11 @@ public class MunicipiosParser extends DefaultHandler {
 		pilha = new Stack<String>();
 	}
 	
-	
 	public void parser() {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		SAXParser parser;
 		try {
 			parser = factory.newSAXParser();
-			//parser.parse(URL, this);
 			parser.parse(new File("src/main/resources/municipios.xml"), this);
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();

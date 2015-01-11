@@ -15,7 +15,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class LatLonParser extends DefaultHandler {
 		
-	//private static final String URL = "http://api.geonames.org/getJSON?geonameId=3390906&username=demo";
+	private static final String URL = "http://api.geonames.org/get?geonameId=%d&username=%s";
 	private static final String USER = "bcfurtado";
 	
 	private static final String ELEMENT_LATITUDE = "lat";
@@ -24,9 +24,6 @@ public class LatLonParser extends DefaultHandler {
 	private Stack<String> pilha;
 	
 	private Municipio municipio;
-	public LatLonParser() {
-		
-	}
 	
 	public Municipio parser( Municipio municipio ){
 		this.municipio = municipio;
@@ -36,7 +33,7 @@ public class LatLonParser extends DefaultHandler {
 		SAXParser parser;
 		try {
 			parser = factory.newSAXParser();
-			parser.parse("http://api.geonames.org/get?geonameId="+municipio.getGeoNameId()+"&username="+USER+"", this);
+			parser.parse(String.format(URL, municipio.getGeoNameId(), USER), this);
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {

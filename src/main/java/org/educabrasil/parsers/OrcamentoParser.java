@@ -13,6 +13,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class OrcamentoParser extends DefaultHandler{
 
+	private static final String URL = "http://api.tcm.ce.gov.br/sim/1_0/dados_orcamentos.xml?codigo_municipio=%s&exercicio_orcamento=%s00";
 	private static final String ELEMENT_ORCAMENTO = "valor_total_fixado_orcamento";
 	
 	private Stack<String> pilha;
@@ -29,7 +30,7 @@ public class OrcamentoParser extends DefaultHandler{
 		SAXParser parser;
 		try {
 			parser = factory.newSAXParser();
-			parser.parse("http://api.tcm.ce.gov.br/sim/1_0/dados_orcamentos.xml?codigo_municipio="+idMunicipio+"&exercicio_orcamento="+ano+"00", this);
+			parser.parse(String.format(URL, idMunicipio, ano), this);
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
